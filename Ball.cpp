@@ -1,12 +1,16 @@
 #include "Ball.hpp"
 #include <cmath>
+#include <corecrt_math_defines.h>
+#define _USE_MATH_DEFINES
 
 // описываем конструктор Ball для получения входных параметров для отрисовки шара
 Ball::Ball (Point center, Velocity velocity, Color color, double radius) {
-    Point ball_center = center;
-    Velocity ball_velocity = velocity;
-    Color ball_color = color;
-    double ball_radius = radius;
+    ball_center = center;
+    ball_velocity = velocity;
+    ball_color = color;
+    ball_radius = radius;
+    double ball_volume = M_PI * pow (ball_radius, 3) * 4 / 3;
+    ball_mass = ball_volume;
 }
 
 
@@ -16,7 +20,7 @@ Ball::Ball (Point center, Velocity velocity, Color color, double radius) {
  */
 void Ball::setVelocity(const Velocity& velocity) {
     // TODO: место для доработки
-    Velocity ball_velocity = velocity;
+    ball_velocity = velocity;
 }
 
 /**
@@ -47,7 +51,7 @@ void Ball::draw(Painter& painter) const {
  */
 void Ball::setCenter(const Point& center) {
     // TODO: место для доработки
-    Point ball_center = center;
+    ball_center = center;
 }
 
 /**
@@ -77,7 +81,7 @@ double Ball::getRadius() const {
  */
 double Ball::getMass() const {
     // TODO: место для доработки
-    double ball_volume = 3.14 * pow (ball_radius, 3) * 4 / 3;
-    double ball_mass = ball_volume;
+    // double ball_volume = M_PI * pow (ball_radius, 3) * 4 / 3;
+    // double ball_mass = ball_volume;
     return ball_mass;
 }

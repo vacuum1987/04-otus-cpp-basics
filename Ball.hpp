@@ -18,4 +18,5 @@ private:
     Point ball_center;                              // текущее местоположение центра шара
     double ball_radius;                             // радиус шара
     Color ball_color;                             // радиус шара
+    double ball_mass;                           // масса шара - она константна, поэтому можем хранить как член данных в private
 };
